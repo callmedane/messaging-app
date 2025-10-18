@@ -1,10 +1,11 @@
+// components/Status.js
 import React from "react";
 import { View, Text, StyleSheet, StatusBar, Platform } from "react-native";
 import Constants from "expo-constants";
 
 export default class Status extends React.Component {
   state = {
-    info: "none", 
+    info: "wifi", 
   };
 
   render() {
@@ -30,9 +31,12 @@ export default class Status extends React.Component {
         )}
       </View>
     );
-
     if (Platform.OS === "ios") {
-      return <View style={[styles.status, { backgroundColor }]}>{messageContainer}</View>;
+      return (
+        <View style={[styles.status, { backgroundColor }]}>
+          {messageContainer}
+        </View>
+      );
     }
 
     return messageContainer;
